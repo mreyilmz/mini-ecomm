@@ -1,0 +1,49 @@
+<!-- <div class="table-responsive">
+  <table class="table table-primary">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Sepete Ekle</th>
+        <th scope="col">Image</th>
+        <th scope="col">Category Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">Created Date</th>
+        <th scope="col">Is Active</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="" *ngFor="let product of productList">
+        <td scope="row">{{ product.id }}</td>
+        <td><button *ngIf="product.isActive" class="btn btn-sm btn-success" (click)="addCart(product)">Sepete Ekle</button></td>
+        <td><img [src]="product.image.small" alt="" /></td>
+        <td>{{ product.categoryId }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.createdDate | date : "dd/MM/yyyy hh:mm" }}</td>
+        <td>{{ product.isActive }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-md-5 g-4">
+    <div class="col" *ngFor="let product of productList">
+      <div class="card h-100">
+        <img [src]="product.image.medium" class="card-img-top" alt="..." />
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">
+              {{ product.description }}
+            </p>
+          </div>
+          <button *ngIf="product.isActive" class="btn btn-sm btn-success btn-product mt-2" (click)="addCart(product)">Sepete Ekle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
